@@ -21,6 +21,13 @@ android {
         }
     }
 
+    // Always show the result of every unit test when running via command line, even if it passes.
+    testOptions.unitTests {
+        // The includeAndroidResources option allows you to access android resources in your unit tests,
+        // including your AndroidManifest file.
+        includeAndroidResources = true
+    }
+
     //dataBinding {
     //    enabled = true
     //    enabledForTests = true
@@ -97,4 +104,6 @@ dependencies {
 
     // hamcrest was written for JAVA, but we are using it in Kotlin
     testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
+
+    testImplementation "androidx.arch.core:core-testing:$archTestingVersion"
 }

@@ -59,11 +59,13 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$timberVersion"
     implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
     implementation "androidx.room:room-runtime:$roomVersion"
+    implementation 'androidx.test.ext:junit-ktx:1.1.4'
     testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
 
 
     testImplementation project(path: ':app')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
     kapt "androidx.room:room-compiler:$roomVersion"
 
     // Architecture Components
@@ -80,6 +82,11 @@ dependencies {
     // Dependencies for local unit tests
     testImplementation "junit:junit:$junitVersion"
 
+    // AndroidX Test - JVM testing
+    testImplementation "androidx.test:core-ktx:$androidXTestCoreVersion"
+    testImplementation "org.robolectric:robolectric:$robolectricVersion"
+    "androidx.test.ext:junit-ktx:$androidXTestExtKotlinRunnerVersion"
+
     // AndroidX Test - Instrumented testing
     androidTestImplementation "androidx.test.ext:junit:$androidXTestExtKotlinRunnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
@@ -90,5 +97,4 @@ dependencies {
 
     // hamcrest was written for JAVA, but we are using it in Kotlin
     testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
-
 }

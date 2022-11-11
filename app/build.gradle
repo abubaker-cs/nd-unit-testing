@@ -34,12 +34,20 @@ android {
     }
 
     compileOptions {
-            sourceCompatibility JavaVersion.VERSION_1_8
-            targetCompatibility JavaVersion.VERSION_1_8
-        }
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
+
+    /**
+     * Source sets:
+     *
+     * 1. implementation - main
+     * 2. androidTestImplementation - androidTest
+     * 3. testImplementation - test
+     */
 
     // App dependencies
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
@@ -51,6 +59,11 @@ dependencies {
     implementation "com.jakewharton.timber:timber:$timberVersion"
     implementation "androidx.legacy:legacy-support-v4:$androidXLegacySupport"
     implementation "androidx.room:room-runtime:$roomVersion"
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
+
+
+    testImplementation project(path: ':app')
     kapt "androidx.room:room-compiler:$roomVersion"
 
     // Architecture Components
